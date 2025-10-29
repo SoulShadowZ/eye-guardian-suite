@@ -64,8 +64,9 @@ const HardwareInit = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <Card className="w-full max-w-lg border-2">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
+      <Card className="w-full max-w-lg border-2 shadow-glow relative z-10 animate-fade-in">
         <CardHeader>
           <CardTitle className="text-2xl">Initializing Hardware</CardTitle>
           <CardDescription>Please wait while the system calibrates</CardDescription>

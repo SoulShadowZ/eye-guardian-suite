@@ -51,8 +51,9 @@ const Results = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <div className="max-w-7xl mx-auto space-y-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
+      <div className="max-w-7xl mx-auto space-y-6 py-8 relative z-10 animate-fade-in">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
@@ -75,7 +76,7 @@ const Results = () => {
         </div>
 
         {/* Risk Assessment */}
-        <Card className="border-2 border-primary/20 bg-gradient-to-r from-card to-primary/5">
+        <Card className="border-2 border-primary/30 bg-gradient-primary/10 shadow-glow">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <RiskIcon className={`w-5 h-5 text-${risk.color}`} />
@@ -94,7 +95,7 @@ const Results = () => {
 
         {/* Measurements Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-lg">Left Eye Pressure</CardTitle>
             </CardHeader>
@@ -106,7 +107,7 @@ const Results = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-lg">Right Eye Pressure</CardTitle>
             </CardHeader>
@@ -118,7 +119,7 @@ const Results = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-lg">Visual Acuity</CardTitle>
             </CardHeader>
@@ -131,7 +132,7 @@ const Results = () => {
 
         {/* Charts */}
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant">
             <CardHeader>
               <CardTitle>Intraocular Pressure Comparison</CardTitle>
             </CardHeader>
@@ -152,7 +153,7 @@ const Results = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant">
             <CardHeader>
               <CardTitle>Refractive Error (Eye Power)</CardTitle>
             </CardHeader>
@@ -174,7 +175,7 @@ const Results = () => {
         </div>
 
         {/* Clinical Summary */}
-        <Card className="border-2">
+        <Card className="border-2 shadow-elegant">
           <CardHeader>
             <CardTitle>Clinical Summary</CardTitle>
           </CardHeader>

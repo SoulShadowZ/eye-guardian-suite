@@ -62,8 +62,9 @@ const Measurement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <div className="max-w-6xl mx-auto space-y-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
+      <div className="max-w-6xl mx-auto space-y-6 py-8 relative z-10 animate-fade-in">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Live Measurement</h1>
@@ -79,7 +80,7 @@ const Measurement = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Left Eye */}
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Eye className="w-5 h-5 text-primary" />
@@ -117,7 +118,7 @@ const Measurement = () => {
           </Card>
 
           {/* Right Eye */}
-          <Card className="border-2">
+          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Eye className="w-5 h-5 text-primary" />
@@ -156,7 +157,7 @@ const Measurement = () => {
         </div>
 
         {/* Visual Acuity */}
-        <Card className="border-2">
+        <Card className="border-2 shadow-elegant">
           <CardContent className="py-6">
             <div className="flex items-center justify-between">
               <div>

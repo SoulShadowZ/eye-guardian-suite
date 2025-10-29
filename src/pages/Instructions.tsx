@@ -8,8 +8,9 @@ const Instructions = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background p-4 py-8">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 py-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
+      <div className="max-w-4xl mx-auto space-y-6 relative z-10 animate-fade-in">
         {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold text-foreground flex items-center justify-center gap-2">
@@ -20,7 +21,7 @@ const Instructions = () => {
         </div>
 
         {/* About Glaucoma */}
-        <Card className="border-2">
+        <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-warning" />
@@ -58,7 +59,7 @@ const Instructions = () => {
         </Card>
 
         {/* Hardware Usage Steps */}
-        <Card className="border-2">
+        <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Activity className="w-5 h-5 text-primary" />
@@ -163,7 +164,7 @@ const Instructions = () => {
           <Button 
             size="lg" 
             onClick={() => navigate("/hardware-init")}
-            className="px-8"
+            className="px-8 shadow-elegant hover:shadow-glow transition-all"
           >
             Proceed to Hardware Initialization
           </Button>

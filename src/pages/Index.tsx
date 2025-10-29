@@ -7,13 +7,14 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-accent/10">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="text-center space-y-6 mb-16">
           <div className="flex justify-center">
-            <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
-              <Eye className="w-12 h-12 text-primary" />
+            <div className="w-24 h-24 rounded-full bg-gradient-primary flex items-center justify-center animate-glow-pulse shadow-glow">
+              <Eye className="w-12 h-12 text-white" />
             </div>
           </div>
           <div className="space-y-4">
@@ -23,17 +24,17 @@ const Index = () => {
               Comprehensive eye health diagnostic platform combining ultrasonic data with advanced tonometry for early detection of glaucoma and refractive errors
             </p>
           </div>
-          <Button size="lg" onClick={() => navigate("/login")} className="text-lg px-8 py-6">
+          <Button size="lg" onClick={() => navigate("/login")} className="text-lg px-8 py-6 shadow-elegant hover:shadow-glow transition-all">
             Start Diagnostic Session
           </Button>
         </div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <Card className="border-2 hover:shadow-lg transition-shadow">
+          <Card className="border-2 hover:shadow-glow hover:border-primary/50 transition-all duration-300 animate-fade-in">
             <CardContent className="pt-6 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Activity className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center mx-auto">
+                <Activity className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold">Non-Contact Tonometry</h3>
               <p className="text-sm text-muted-foreground">
@@ -42,10 +43,10 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:shadow-lg transition-shadow">
+          <Card className="border-2 hover:shadow-glow hover:border-accent/50 transition-all duration-300 animate-fade-in">
             <CardContent className="pt-6 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto">
-                <Zap className="w-6 h-6 text-accent" />
+              <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center mx-auto">
+                <Zap className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold">AI-Powered Analytics</h3>
               <p className="text-sm text-muted-foreground">
@@ -54,10 +55,10 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:shadow-lg transition-shadow">
+          <Card className="border-2 hover:shadow-glow hover:border-secondary/50 transition-all duration-300 animate-fade-in">
             <CardContent className="pt-6 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-success/10 flex items-center justify-center mx-auto">
-                <Eye className="w-6 h-6 text-success" />
+              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mx-auto">
+                <Eye className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold">Vision Screening</h3>
               <p className="text-sm text-muted-foreground">
@@ -66,10 +67,10 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:shadow-lg transition-shadow">
+          <Card className="border-2 hover:shadow-glow hover:border-primary/50 transition-all duration-300 animate-fade-in">
             <CardContent className="pt-6 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Shield className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center mx-auto">
+                <Shield className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold">HIPAA Compliant</h3>
               <p className="text-sm text-muted-foreground">
@@ -80,7 +81,7 @@ const Index = () => {
         </div>
 
         {/* Info Section */}
-        <Card className="border-2 bg-gradient-to-r from-card to-primary/5">
+        <Card className="border-2 bg-gradient-primary/10 border-primary/30 shadow-elegant">
           <CardContent className="py-8">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>

@@ -25,12 +25,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <div className="w-full max-w-md space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
+      <div className="w-full max-w-md space-y-8 relative z-10 animate-fade-in">
         <div className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-              <Eye className="w-10 h-10 text-primary" />
+            <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow animate-glow-pulse">
+              <Eye className="w-10 h-10 text-white" />
             </div>
           </div>
           <div>
@@ -39,7 +40,7 @@ const Login = () => {
           </div>
         </div>
 
-        <Card className="border-2">
+        <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
           <CardHeader>
             <CardTitle>Device Login</CardTitle>
             <CardDescription>Enter credentials to start diagnostic session</CardDescription>
@@ -71,7 +72,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full shadow-elegant hover:shadow-glow transition-all" size="lg">
                 Start Session
               </Button>
             </form>
