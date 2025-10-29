@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
+import Instructions from "./pages/Instructions";
 import HardwareInit from "./pages/HardwareInit";
 import Measurement from "./pages/Measurement";
 import Results from "./pages/Results";
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/instructions" element={<Instructions />} />
           <Route path="/hardware-init" element={<HardwareInit />} />
           <Route path="/measurement" element={<Measurement />} />
           <Route path="/results" element={<Results />} />
