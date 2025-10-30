@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Activity, Target, Gauge } from "lucide-react";
+import { Eye, Activity, Gauge } from "lucide-react";
 import { toast } from "sonner";
 
 interface MeasurementData {
   leftEyePressure: number;
   rightEyePressure: number;
-  leftEyePower: number;
-  rightEyePower: number;
   visualAcuity: string;
 }
 
@@ -18,26 +16,22 @@ const Measurement = () => {
   const navigate = useNavigate();
   const [isCapturing, setIsCapturing] = useState(true);
   const [measurements, setMeasurements] = useState<MeasurementData>({
-    leftEyePressure: 0,
-    rightEyePressure: 0,
-    leftEyePower: 0,
-    rightEyePower: 0,
-    visualAcuity: "Measuring...",
+    leftEyePressure: 14,
+    rightEyePressure: 15,
+    visualAcuity: "20/20",
   });
 
   useEffect(() => {
-    // Simulate real-time measurement capture
+    // Simulate real-time measurement capture with healthy eye pressure values (12-16 mmHg)
     const interval = setInterval(() => {
       if (isCapturing) {
-        setMeasurements(prev => ({
-          leftEyePressure: Math.min(prev.leftEyePressure + Math.random() * 2, 18),
-          rightEyePressure: Math.min(prev.rightEyePressure + Math.random() * 2, 16),
-          leftEyePower: Math.min(prev.leftEyePower + Math.random() * 0.3, -2.5),
-          rightEyePower: Math.min(prev.rightEyePower + Math.random() * 0.3, -2.25),
-          visualAcuity: prev.leftEyePressure > 15 ? "20/20" : "Measuring...",
-        }));
+        setMeasurements({
+          leftEyePressure: 14 + Math.random() * 2,
+          rightEyePressure: 15 + Math.random() * 2,
+          visualAcuity: "20/20",
+        });
       }
-    }, 100);
+    }, 200);
 
     // Complete measurement after 5 seconds
     const timeout = setTimeout(() => {
@@ -101,18 +95,7 @@ const Measurement = () => {
                 <div className="text-4xl font-bold text-primary">
                   {measurements.leftEyePressure.toFixed(1)} <span className="text-xl text-muted-foreground">mmHg</span>
                 </div>
-              </div>
-
-              <div className="pt-4 border-t">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-muted-foreground flex items-center gap-2">
-                    <Target className="w-4 h-4" />
-                    Eye Power
-                  </span>
-                </div>
-                <div className="text-2xl font-semibold">
-                  {measurements.leftEyePower.toFixed(2)} <span className="text-sm text-muted-foreground">D</span>
-                </div>
+                <p className="text-xs text-muted-foreground">Normal range: 12-21 mmHg</p>
               </div>
             </CardContent>
           </Card>
@@ -139,18 +122,7 @@ const Measurement = () => {
                 <div className="text-4xl font-bold text-primary">
                   {measurements.rightEyePressure.toFixed(1)} <span className="text-xl text-muted-foreground">mmHg</span>
                 </div>
-              </div>
-
-              <div className="pt-4 border-t">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-muted-foreground flex items-center gap-2">
-                    <Target className="w-4 h-4" />
-                    Eye Power
-                  </span>
-                </div>
-                <div className="text-2xl font-semibold">
-                  {measurements.rightEyePower.toFixed(2)} <span className="text-sm text-muted-foreground">D</span>
-                </div>
+                <p className="text-xs text-muted-foreground">Normal range: 12-21 mmHg</p>
               </div>
             </CardContent>
           </Card>

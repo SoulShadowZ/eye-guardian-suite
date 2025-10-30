@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, LineChart, Line } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Download, Share2, AlertCircle, CheckCircle2, Eye } from "lucide-react";
 import { toast } from "sonner";
 
@@ -11,21 +11,14 @@ const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const measurements = location.state?.measurements || {
-    leftEyePressure: 18,
+    leftEyePressure: 15,
     rightEyePressure: 16,
-    leftEyePower: -2.5,
-    rightEyePower: -2.25,
     visualAcuity: "20/20",
   };
 
   const pressureData = [
     { eye: "Left Eye", pressure: measurements.leftEyePressure, normalMin: 12, normalMax: 21 },
     { eye: "Right Eye", pressure: measurements.rightEyePressure, normalMin: 12, normalMax: 21 },
-  ];
-
-  const powerData = [
-    { eye: "Left", power: Math.abs(measurements.leftEyePower) },
-    { eye: "Right", power: Math.abs(measurements.rightEyePower) },
   ];
 
   const getRiskAssessment = () => {
@@ -130,49 +123,27 @@ const Results = () => {
           </Card>
         </div>
 
-        {/* Charts */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-2 shadow-elegant">
-            <CardHeader>
-              <CardTitle>Intraocular Pressure Comparison</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={pressureData}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                  <XAxis dataKey="eye" className="text-xs" />
-                  <YAxis className="text-xs" />
-                  <Tooltip 
-                    contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
-                  />
-                  <Legend />
-                  <Bar dataKey="pressure" fill="hsl(var(--primary))" name="IOP (mmHg)" radius={[8, 8, 0, 0]} />
-                  <Bar dataKey="normalMax" fill="hsl(var(--muted))" name="Normal Max" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-
-          <Card className="border-2 shadow-elegant">
-            <CardHeader>
-              <CardTitle>Refractive Error (Eye Power)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={powerData}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                  <XAxis dataKey="eye" className="text-xs" />
-                  <YAxis className="text-xs" />
-                  <Tooltip 
-                    contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
-                  />
-                  <Legend />
-                  <Line type="monotone" dataKey="power" stroke="hsl(var(--accent))" strokeWidth={3} name="Diopters (D)" />
-                </LineChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Chart */}
+        <Card className="border-2 shadow-elegant">
+          <CardHeader>
+            <CardTitle>Intraocular Pressure Comparison</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={pressureData}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
+                <XAxis dataKey="eye" className="text-xs" />
+                <YAxis className="text-xs" />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
+                />
+                <Legend />
+                <Bar dataKey="pressure" fill="hsl(var(--primary))" name="IOP (mmHg)" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="normalMax" fill="hsl(var(--muted))" name="Normal Max" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
 
         {/* Clinical Summary */}
         <Card className="border-2 shadow-elegant">
@@ -185,7 +156,6 @@ const Results = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Bilateral eye pressure measurements completed using non-contact tonometry</li>
                 <li>• Visual acuity assessment: {measurements.visualAcuity}</li>
-                <li>• Refractive error analysis completed for both eyes</li>
                 <li>• AI-powered risk stratification performed</li>
               </ul>
             </div>
