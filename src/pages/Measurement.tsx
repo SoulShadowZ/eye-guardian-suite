@@ -56,25 +56,62 @@ const Measurement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
-      <div className="max-w-6xl mx-auto space-y-6 py-8 relative z-10 animate-fade-in">
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen flex">
+      {/* Left Section - Purple Gradient */}
+      <div className="hidden lg:flex lg:w-2/5 bg-gradient-primary p-12 flex-col justify-center text-white">
+        <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Live Measurement</h1>
-            <p className="text-muted-foreground mt-1">Non-contact tonometry in progress</p>
+            <h1 className="text-5xl font-bold mb-2">E-VTon</h1>
+            <p className="text-xl opacity-95">Eye Health Diagnostic Platform</p>
+          </div>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Non-contact Tonometry Measurement</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>AI-Powered Glaucoma Detection</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Ultrasonic Data Analytics</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Comprehensive Eye Health Reports</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Right Section - Content */}
+      <div className="flex-1 bg-gray-50 p-6 lg:p-12 overflow-y-auto">
+        <div className="max-w-6xl mx-auto space-y-6 animate-fade-in">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900">Live Measurement</h1>
+            <p className="text-gray-600 mt-1">Non-contact tonometry in progress</p>
           </div>
           {isCapturing && (
-            <Badge variant="outline" className="gap-2 animate-pulse">
-              <Activity className="w-4 h-4" />
-              Capturing Data
+            <Badge variant="outline" className="gap-2 animate-pulse bg-purple-50 border-purple-200">
+              <Activity className="w-4 h-4 text-primary" />
+              <span className="text-primary">Capturing Data</span>
             </Badge>
           )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Left Eye */}
-          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+          <Card className="bg-white border-gray-200 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Eye className="w-5 h-5 text-primary" />
@@ -101,7 +138,7 @@ const Measurement = () => {
           </Card>
 
           {/* Right Eye */}
-          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+          <Card className="bg-white border-gray-200 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Eye className="w-5 h-5 text-primary" />
@@ -129,23 +166,25 @@ const Measurement = () => {
         </div>
 
         {/* Visual Acuity */}
-        <Card className="border-2 shadow-elegant">
+        <Card className="bg-white border-gray-200 shadow-lg">
           <CardContent className="py-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Visual Acuity</p>
-                <p className="text-2xl font-bold mt-1">{measurements.visualAcuity}</p>
+                <p className="text-sm text-gray-600">Visual Acuity</p>
+                <p className="text-2xl font-bold mt-1 text-gray-900">{measurements.visualAcuity}</p>
               </div>
               <Button 
                 size="lg" 
                 onClick={handleViewResults}
                 disabled={isCapturing}
+                className="bg-gradient-primary hover:opacity-90 transition-all shadow-lg"
               >
                 {isCapturing ? "Capturing..." : "View Complete Results"}
               </Button>
             </div>
           </CardContent>
         </Card>
+        </div>
       </div>
     </div>
   );

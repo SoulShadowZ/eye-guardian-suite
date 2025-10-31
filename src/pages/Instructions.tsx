@@ -8,20 +8,57 @@ const Instructions = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 py-8 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
-      <div className="max-w-4xl mx-auto space-y-6 relative z-10 animate-fade-in">
+    <div className="min-h-screen flex">
+      {/* Left Section - Purple Gradient */}
+      <div className="hidden lg:flex lg:w-2/5 bg-gradient-primary p-12 flex-col justify-center text-white">
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-5xl font-bold mb-2">E-VTon</h1>
+            <p className="text-xl opacity-95">Eye Health Diagnostic Platform</p>
+          </div>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Non-contact Tonometry Measurement</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>AI-Powered Glaucoma Detection</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Ultrasonic Data Analytics</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Comprehensive Eye Health Reports</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Right Section - Content */}
+      <div className="flex-1 bg-gray-50 p-6 lg:p-12 overflow-y-auto">
+        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-foreground flex items-center justify-center gap-2">
-            <Eye className="w-8 h-8 text-primary" />
+        <div className="text-center space-y-2 mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
+            <Eye className="w-10 h-10 text-primary" />
             Understanding Glaucoma
           </h1>
-          <p className="text-muted-foreground">Essential information before your diagnostic session</p>
+          <p className="text-gray-600">Essential information before your diagnostic session</p>
         </div>
 
         {/* About Glaucoma */}
-        <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+        <Card className="bg-white border-gray-200 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-warning" />
@@ -59,7 +96,7 @@ const Instructions = () => {
         </Card>
 
         {/* Hardware Usage Steps */}
-        <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+        <Card className="bg-white border-gray-200 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Activity className="w-5 h-5 text-primary" />
@@ -151,9 +188,9 @@ const Instructions = () => {
         </Card>
 
         {/* Important Notice */}
-        <Alert>
-          <CheckCircle className="h-4 w-4" />
-          <AlertDescription className="text-sm">
+        <Alert className="bg-green-50 border-green-200">
+          <CheckCircle className="h-4 w-4 text-green-600" />
+          <AlertDescription className="text-sm text-gray-700">
             The entire process takes approximately 5-7 minutes. If you experience discomfort at any point, 
             please inform the operator immediately.
           </AlertDescription>
@@ -164,10 +201,11 @@ const Instructions = () => {
           <Button 
             size="lg" 
             onClick={() => navigate("/hardware-init")}
-            className="px-8 shadow-elegant hover:shadow-glow transition-all"
+            className="px-12 bg-gradient-primary hover:opacity-90 transition-all shadow-lg"
           >
             Proceed to Hardware Initialization
           </Button>
+        </div>
         </div>
       </div>
     </div>

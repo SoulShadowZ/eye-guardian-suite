@@ -44,24 +44,61 @@ const Results = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
-      <div className="max-w-7xl mx-auto space-y-6 py-8 relative z-10 animate-fade-in">
-        {/* Header */}
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen flex">
+      {/* Left Section - Purple Gradient */}
+      <div className="hidden lg:flex lg:w-2/5 bg-gradient-primary p-12 flex-col justify-center text-white">
+        <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
-              <Eye className="w-8 h-8 text-primary" />
+            <h1 className="text-5xl font-bold mb-2">E-VTon</h1>
+            <p className="text-xl opacity-95">Eye Health Diagnostic Platform</p>
+          </div>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Non-contact Tonometry Measurement</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>AI-Powered Glaucoma Detection</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Ultrasonic Data Analytics</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Comprehensive Eye Health Reports</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Right Section - Content */}
+      <div className="flex-1 bg-gray-50 p-6 lg:p-12 overflow-y-auto">
+        <div className="max-w-7xl mx-auto space-y-6 animate-fade-in">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-3">
+              <Eye className="w-10 h-10 text-primary" />
               Diagnostic Report
             </h1>
-            <p className="text-muted-foreground mt-1">E-VTon Eye Vision Tonometry Analysis</p>
+            <p className="text-gray-600 mt-1">E-VTon Eye Vision Tonometry Analysis</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={handleShare}>
+            <Button variant="outline" onClick={handleShare} className="border-gray-300 hover:bg-gray-100">
               <Share2 className="w-4 h-4 mr-2" />
               Share
             </Button>
-            <Button onClick={handleDownload}>
+            <Button onClick={handleDownload} className="bg-gradient-primary hover:opacity-90 transition-all shadow-lg">
               <Download className="w-4 h-4 mr-2" />
               Download PDF
             </Button>
@@ -69,7 +106,7 @@ const Results = () => {
         </div>
 
         {/* Risk Assessment */}
-        <Card className="border-2 border-primary/30 bg-gradient-primary/10 shadow-glow">
+        <Card className="bg-purple-50 border-purple-200 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <RiskIcon className={`w-5 h-5 text-${risk.color}`} />
@@ -88,7 +125,7 @@ const Results = () => {
 
         {/* Measurements Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+          <Card className="bg-white border-gray-200 shadow-lg">
             <CardHeader>
               <CardTitle className="text-lg">Left Eye Pressure</CardTitle>
             </CardHeader>
@@ -100,7 +137,7 @@ const Results = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+          <Card className="bg-white border-gray-200 shadow-lg">
             <CardHeader>
               <CardTitle className="text-lg">Right Eye Pressure</CardTitle>
             </CardHeader>
@@ -112,7 +149,7 @@ const Results = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 shadow-elegant hover:shadow-glow transition-all duration-300">
+          <Card className="bg-white border-gray-200 shadow-lg">
             <CardHeader>
               <CardTitle className="text-lg">Visual Acuity</CardTitle>
             </CardHeader>
@@ -124,7 +161,7 @@ const Results = () => {
         </div>
 
         {/* Chart */}
-        <Card className="border-2 shadow-elegant">
+        <Card className="bg-white border-gray-200 shadow-lg">
           <CardHeader>
             <CardTitle>Intraocular Pressure Comparison</CardTitle>
           </CardHeader>
@@ -146,7 +183,7 @@ const Results = () => {
         </Card>
 
         {/* Clinical Summary */}
-        <Card className="border-2 shadow-elegant">
+        <Card className="bg-white border-gray-200 shadow-lg">
           <CardHeader>
             <CardTitle>Clinical Summary</CardTitle>
           </CardHeader>
@@ -174,18 +211,19 @@ const Results = () => {
 
         {/* Footer Actions */}
         <div className="flex justify-center gap-4 pt-4">
-          <Button variant="outline" size="lg" onClick={handleNewTest}>
+          <Button variant="outline" size="lg" onClick={handleNewTest} className="border-gray-300 hover:bg-gray-100">
             New Test
           </Button>
-          <Button size="lg" onClick={() => navigate("/")}>
+          <Button size="lg" onClick={() => navigate("/")} className="bg-gradient-primary hover:opacity-90 transition-all shadow-lg">
             Complete Session
           </Button>
         </div>
 
         {/* Compliance Footer */}
-        <div className="text-center text-xs text-muted-foreground pt-8 border-t">
+        <div className="text-center text-xs text-gray-500 pt-8 border-t border-gray-200">
           <p>HIPAA-Compliant Data Storage • Report generated by E-VTon v2.0</p>
           <p className="mt-1">This report is for screening purposes only and should not replace professional medical diagnosis</p>
+        </div>
         </div>
       </div>
     </div>

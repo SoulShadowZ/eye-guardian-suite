@@ -64,9 +64,46 @@ const HardwareInit = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 p-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
-      <Card className="w-full max-w-lg border-2 shadow-glow relative z-10 animate-fade-in">
+    <div className="min-h-screen flex">
+      {/* Left Section - Purple Gradient */}
+      <div className="hidden lg:flex lg:w-2/5 bg-gradient-primary p-12 flex-col justify-center text-white">
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-5xl font-bold mb-2">E-VTon</h1>
+            <p className="text-xl opacity-95">Eye Health Diagnostic Platform</p>
+          </div>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Non-contact Tonometry Measurement</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>AI-Powered Glaucoma Detection</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Ultrasonic Data Analytics</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-sm">✓</span>
+              </div>
+              <span>Comprehensive Eye Health Reports</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Right Section - Content */}
+      <div className="flex-1 bg-gray-50 flex items-center justify-center p-6">
+        <Card className="w-full max-w-lg bg-white border-gray-200 shadow-lg animate-fade-in">
         <CardHeader>
           <CardTitle className="text-2xl">Initializing Hardware</CardTitle>
           <CardDescription>Please wait while the system calibrates</CardDescription>
@@ -91,11 +128,12 @@ const HardwareInit = () => {
             <Progress value={progress} className="h-2" />
           </div>
 
-          <div className="text-xs text-center text-muted-foreground pt-4 border-t">
+          <div className="text-xs text-center text-gray-500 pt-4 border-t">
             Hardware calibration ensures accurate measurements
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 };
